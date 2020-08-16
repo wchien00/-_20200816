@@ -1,0 +1,27 @@
+﻿@model WebMVC.Models.Text01_Web01;
+@{
+    ViewData["Title"] = "Web01";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>@ViewData["Title"]</h1>
+
+    <ul>
+        <li>@Html.DisplayNameFor(o => o.strName):@Html.DisplayFor(o => o.strName)</li>
+        <li>@Html.DisplayNameFor(o => o.strYear):@Html.DisplayFor(o => o.strYear)</li>
+        <li>@Html.DisplayNameFor(o => o.strMonth):@Html.DisplayFor(o => o.strMonth)</li>
+        <li>@Html.DisplayNameFor(o => o.strDay):@Html.DisplayFor(o => o.strDay)</li>
+
+
+    </ul>
+
+</body>
+</html>

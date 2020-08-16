@@ -1,0 +1,34 @@
+﻿@model WebMVC.Models.Text01_Web01
+
+@{
+    ViewData["Title"] = "功能一";
+
+}
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @if (TempData["Message"] != null)
+    {
+        <script type="text/javascript">
+            var message = @Html.Raw(Json.Serialize(TempData["Message"]));
+            alert(message);
+        </script>
+    }
+
+</head>
+<body>
+    <h1>@ViewData["Title"]</h1>
+
+    <form action="~/Text01/Web01" method="post">
+        名字: <input type="text" name="strName"  value = "@TempData["strName"]"  /><br />
+        生日(年): <input type="text" name="strYear" maxlength ="4"  value= "@TempData["strYear"]" /><br />
+        生日(月): <input type="text" name="strMonth" maxlength="2" value= "@TempData["strMonth"]"/><br />
+        生日(日): <input type="text" name="strDay" maxlength="2" value = "@TempData["strDay"]" /><br />
+        <input type="submit" />
+    </form>
+</body>
+</html>
