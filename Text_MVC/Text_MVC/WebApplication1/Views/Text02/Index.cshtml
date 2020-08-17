@@ -1,0 +1,17 @@
+﻿@using WebMVC.Models
+@{
+    List<DBconnTest> DBconnTests = ViewBag.DBconnTests;
+    ViewData["Title"] = "功能二-資料庫串接+顯示資料";
+}
+
+    <h1>@ViewData["Title"]</h1>
+
+@foreach (DBconnTest DBconnTest in DBconnTests) { 
+    <div>
+        <span>OrderID:@DBconnTest.OrderID</span>   
+        <span>ProductID:@DBconnTest.ProductID</span>   
+        <span>UnitPrice:@DBconnTest.UnitPrice</span>   
+        <span>Quantity:@DBconnTest.Quantity</span>   
+        <span>Discount:@DBconnTest.Discount</span>   
+    </div>
+}

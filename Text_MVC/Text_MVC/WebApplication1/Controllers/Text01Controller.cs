@@ -14,13 +14,15 @@ namespace WebMVC.Controllers
 
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("Message") != null)
+            if (HttpContext.Session.GetString("Message") != null && HttpContext.Session.GetString("mark") != "1")
             {
                 TempData["strName"] = HttpContext.Session.GetString("strName");
                 TempData["strYear"] = HttpContext.Session.GetString("strYear");
                 TempData["strMonth"] = HttpContext.Session.GetString("strMonth");
                 TempData["strDay"] = HttpContext.Session.GetString("strDay");
                 TempData["Message"] = HttpContext.Session.GetString("Message");
+                HttpContext.Session.SetString("mark", "1");
+
             }
             else
             {
@@ -29,6 +31,7 @@ namespace WebMVC.Controllers
                 TempData["strMonth"] = "";
                 TempData["strDay"] = "";
                 TempData["Message"] = null;
+                HttpContext.Session.Clear();
 
             }
 
@@ -76,6 +79,7 @@ namespace WebMVC.Controllers
                     }
                 }
             }
+            HttpContext.Session.Clear();
             if (strMessage != "")
             {
                 HttpContext.Session.SetString("strName", text01_Web01.strName.ToString());//名字
@@ -85,9 +89,7 @@ namespace WebMVC.Controllers
                 HttpContext.Session.SetString("Message", strMessage);
                 Response.Redirect("Index");
             }
-            else {
-                HttpContext.Session.Clear();
-            }
+            
             return View(text01_Web01);
 
     }
